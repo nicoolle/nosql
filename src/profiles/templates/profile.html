@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+    <script src="{% static 'register.js' %}" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+            type="text/javascript"></script>
+    <title>Profile</title>
+</head>
+<body>
+    <div class="login-page">
+        <header class="user__header" >
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+            <h1 class="user__title">A lightweight and simple way to share your minds</h1>
+            <br>
+        </header>
+        <div class="hat">
+            <button class = "butt" onclick="window.location='/feed/';" style="margin-left: 90px;">Home</button>
+            <button class = "butt" onclick="window.location='/profiles/';">Users</button>
+            <button class = "butt" onclick="window.location='/profiles/{{ current }}/';">Profile</button>
+            <a style="width:70px"></a>
+            <button class = "logout" onclick="window.location='/profiles/logout';">Log out</button>
+        </div>
+
+        <div class="form">
+            <input type="text" value="{{ user.username }}" name="currentUsername" hidden>
+            <form method="post" action="/profiles/{{ user.username }}/">
+                {% csrf_token %}
+                <div class="user_profile">
+                    <h3> User: {{ user.username }}</h3>
+                    <h4> email: {{ user.email }}</h4>
+                    <h5> followers: {{ user.followers|length }} follows: {{ user.follows|length }}</h5>
+                    <p>Joined: {{ user.date_joined }}</p>
+                    <p>Last seen: {{ user.last_login }}</p>
+                    {% if not current %}
+                        {% if not is_following %}
+                        <button class="btn_follow" type="submit">Follow</button>
+                        {% else %}
+                        <button class="btn_follow" type="submit">Unfollow</button>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </form>
+            <h2 style="background-color: rgb(243, 222, 182); max-width: 160px; padding: 5px; padding-left:10px;"> Recent posts:</h2>
+            {% for post in posts %}
+            <div class="post-card">
+                <div class="post-card__variables">
+                    <input type="text" name="author" value="{{ post.author }}" hidden>
+                    <input type="text" name="title" value="{{ post.title }}" hidden>
+                </div>
+                <div class="post-card__data">
+                    <h3>{{ post.title }}</h3>
+                    <textarea class="textarea_comment" name="content"
+                              disabled>{{ post.content }}</textarea>
+                </div>
+                <br>
+                <div class="post-card__actions">
+                    <div class="post-card__buttons">
+                        <p onclick="show_comments(this)"> {{ post.comments|length }} comments</p>
+                    </div>
+                    <p>{{ post.author }}</p>
+                </div>
+                <div class="post-card__comments">
+                    {% for comment in post.comments %}
+                    <div class="comment">
+                        <h5 style="margin-left: 10px; padding: 0">{{ comment.author }}:<br/>
+                            {{ comment.comment }}</h5>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

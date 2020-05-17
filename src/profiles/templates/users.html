@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+    <script src="{% static 'register.js' %}" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+    <title>Users</title>
+</head>
+
+<body>
+
+    <div class="login-page">
+        <header class="user__header" >
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+            <h1 class="user__title">A lightweight and simple way to share your minds</h1>
+            <br>
+        </header>
+        <div class="hat">
+            <button class = "butt" onclick="window.location='/feed/';" style="margin-left: 90px;">Home</button>
+            <button class = "butt" onclick="window.location='/profiles/';">Users</button>
+            <button class = "butt" onclick="window.location='/profiles/{{ current }}/';">Profile</button>
+            <a style="width:70px"></a>
+            <button class = "logout" onclick="window.location='/profiles/logout';">Log out</button>
+        </div>
+
+        <div class="profile_form">
+            {% csrf_token %}
+            {% for user in users %}
+            <div class="post-card">
+                <div class="post-card__data">
+                    <h3> <a href="/profiles/{{ user.username }}/" style="text-decoration: none; color: rgb(60, 160, 173);"> {{ user.username }} </a></h3>
+                    <h5 style="color: rgb(63, 184, 172);">followers: {{ user.followers|length }}</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</body>
+</html>
