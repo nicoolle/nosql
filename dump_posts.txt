@@ -1,0 +1,116 @@
+{
+        "_id" : ObjectId("5ec182f1c74d685cd24b2656"),
+        "author" : "elon",
+        "title" : "tesla",
+        "content" : "boring company ccompletes 2nd vegas tunnel",
+        "date" : ISODate("2020-05-17T18:31:13.162Z"),
+        "comments" : [ ]
+}
+{
+        "_id" : ObjectId("5ec183bec74d685cd24b2657"),
+        "author" : "elon",
+        "title" : "the boring company",
+        "content" : "No matter the barrier, Vegas doesn’t stop. This morning, excavation was completed on the final tunnel of Elon Musk’s innovative underground transportation system beneath the Las Vegas Convention Center. The project is scheduled to debut in January 2021. #VegasMeansBusiness ",
+        "date" : ISODate("2020-05-17T18:34:38.360Z"),
+        "comments" : [
+                {
+                        "author" : "nicole",
+                        "comment" : "This is really true"
+                },
+                {
+                        "author" : "nicole",
+                        "comment" : "funny"
+                },
+                {
+                        "author" : "dima",
+                        "comment" : "love Vegas"
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5ec18431c74d685cd24b2659"),
+        "author" : "nicole",
+        "title" : "This is life",
+        "content" : "купала кота.\r\nразом з брудом зійшла і вся його любов до людей",
+        "date" : ISODate("2020-05-17T18:36:33.356Z"),
+        "comments" : [
+                {
+                        "author" : "dima",
+                        "comment" : "собаки краще"
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5ec185a5c74d685cd24b265b"),
+        "author" : "dima",
+        "title" : "Doterlife",
+        "content" : "/дівчина захворіла/\r\nХлопчик: купує ліки, готує, приносить чай в ліжко, хвилюється і приділяє увагу 24/7 \r\nЧоловік: питає «шо ти» між катками в доті",
+        "date" : ISODate("2020-05-17T18:42:45.358Z"),
+        "comments" : [ ]
+}
+{
+        "_id" : ObjectId("5ec1866ac74d685cd24b265c"),
+        "author" : "dima",
+        "title" : "Подорожі",
+        "content" : "Найщасливіші люди - ті, які витрачають гроші не на речі, а на дослідження.",
+        "date" : ISODate("2020-05-17T18:46:02.582Z"),
+        "comments" : [ ]
+}
+{
+        "_id" : ObjectId("5ec186ddc74d685cd24b265d"),
+        "author" : "dima",
+        "title" : "Дощові дні",
+        "content" : "Можна мені парфуми, що мають запах грози?\r\nІ взагалі, дощ - це час відкривати вікна.",
+        "date" : ISODate("2020-05-17T18:47:57.746Z"),
+        "comments" : [ ]
+}
+{
+        "_id" : ObjectId("5ec1875ac74d685cd24b265f"),
+        "author" : "elon",
+        "title" : "spaceX",
+        "content" : "Static fire test of Falcon 9 complete—targeting Sunday, May 17 at 3:53 a.m. EDT, 7:53 UTC, for launch of the eighth Starlink mission, which will lift off from SLC-40 in Florida",
+        "date" : ISODate("2020-05-17T18:50:02.032Z"),
+        "comments" : [ ]
+}
+{
+        "_id" : ObjectId("5ec18796c74d685cd24b2660"),
+        "author" : "elon",
+        "title" : "Essay",
+        "content" : "In his 18th Brumaire essay (in which he does make some good points), Marx famously said history repeats itself, first as tragedy, then as farce. This is now ironically happening with Marxism.",
+        "date" : ISODate("2020-05-17T18:51:02.125Z"),
+        "comments" : [
+                {
+                        "author" : "nicole",
+                        "comment" : "funny story"
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5ec187e7c74d685cd24b2661"),
+        "author" : "elon",
+        "title" : "Tesla",
+        "content" : "Tesla is restarting production today against Alameda County rules. I will be on the line with everyone else. If anyone is arrested, I ask that it only be me.",
+        "date" : ISODate("2020-05-17T18:52:23.638Z"),
+        "comments" : [
+                {
+                        "author" : "nicole",
+                        "comment" : "Reading this, i want new car"
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5ec18808c74d685cd24b2662"),
+        "author" : "elon",
+        "title" : "Minecraft",
+        "content" : "Anyone think they can get a good multiplayer Minecraft working on Teslas? Or maybe create a game that interacts virtually with reality like Pokémon Go while driving safely? Like a complex version of Pac-man or Mario Kart?",
+        "date" : ISODate("2020-05-17T18:52:56.214Z"),
+        "comments" : [ ]
+}
+{
+        "_id" : ObjectId("5ec188e6c74d685cd24b2664"),
+        "author" : "nicole",
+        "title" : "2015",
+        "content" : "So in retrospect, in 2015, not a single person got the answer right to \"Where do you see yourself 5 years from now?\"",
+        "date" : ISODate("2020-05-17T18:56:38.544Z"),
+        "comments" : [ ]
+}
