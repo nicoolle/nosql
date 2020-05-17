@@ -1,0 +1,90 @@
+      "_id" : ObjectId("5ec16b56c74d685cd24b264f"),
+        "password" : "pbkdf2_sha256$150000$BlpZCfdUPyL5$OlAKg9vKfhCqhfl4bLotZaX0D4MhFIH74zNQ2QqlTFU=",
+        "last_login" : ISODate("2020-05-17T19:02:45.678Z"),
+        "is_superuser" : false,
+        "username" : "nicole",
+        "first_name" : "",
+        "last_name" : "",
+        "email" : "zz@z.z",
+        "is_staff" : false,
+        "is_active" : true,
+        "date_joined" : ISODate("2020-05-17T16:50:30.112Z"),
+        "followers" : [
+                "dima",
+                "tina"
+        ],
+        "follows" : [
+                "elon",
+                "dima"
+        ]
+}
+{
+        "_id" : ObjectId("5ec16b76c74d685cd24b2650"),
+        "password" : "pbkdf2_sha256$150000$U0DRpMjqvua9$SH3c1maMQ6Vu5DsfwA0NkxIATyoDj9Qhak4xI4Pj0pQ=",
+        "last_login" : ISODate("2020-05-17T18:27:19.565Z"),
+        "is_superuser" : false,
+        "username" : "edik",
+        "first_name" : "",
+        "last_name" : "",
+        "email" : "edkoz@gmail.com",
+        "is_staff" : false,
+        "is_active" : true,
+        "date_joined" : ISODate("2020-05-17T16:51:01.954Z"),
+        "followers" : [ ],
+        "follows" : [ ]
+}
+{
+        "_id" : ObjectId("5ec16b8cc74d685cd24b2651"),
+        "password" : "pbkdf2_sha256$150000$GOtf6nj6b5C8$+6+ecZoWIaF03gpgqLtmrpt3/WB/IcW1AWmJZSIgI/M=",
+        "last_login" : ISODate("2020-05-17T21:07:07.315Z"),
+        "is_superuser" : false,
+        "username" : "dima",
+        "first_name" : "",
+        "last_name" : "",
+        "email" : "dm@d.com",
+        "is_staff" : false,
+        "is_active" : true,
+        "date_joined" : ISODate("2020-05-17T16:51:24.242Z"),
+        "followers" : [
+                "nicole"
+        ],
+        "follows" : [
+                "nicole",
+                "elon"
+        ]
+}
+{
+        "_id" : ObjectId("5ec18187c74d685cd24b2652"),
+        "password" : "pbkdf2_sha256$150000$Xxx6h8jPcR8x$lR9x32kxuSr7evm5FUYsH+aDgvY/7EnnaoRCKwolg1U=",
+        "last_login" : ISODate("2020-05-17T19:02:12.634Z"),
+        "is_superuser" : false,
+        "username" : "tina",
+        "first_name" : "",
+        "last_name" : "",
+        "email" : "tn@t.com",
+        "is_staff" : false,
+        "is_active" : true,
+        "date_joined" : ISODate("2020-05-17T18:25:11.314Z"),
+        "followers" : [ ],
+        "follows" : [
+                "nicole"
+        ]
+}
+{
+        "_id" : ObjectId("5ec18297c74d685cd24b2654"),
+        "password" : "pbkdf2_sha256$150000$lZEDW2efOcTd$i6Olx/+m3zyTEpO7RDvcyawBx6aTjXau1m8qYtUFO/8=",
+        "last_login" : ISODate("2020-05-17T18:48:37.791Z"),
+        "is_superuser" : false,
+        "username" : "elon",
+        "first_name" : "",
+        "last_name" : "",
+        "email" : "e@m.com",
+        "is_staff" : false,
+        "is_active" : true,
+        "date_joined" : ISODate("2020-05-17T18:29:42.569Z"),
+        "followers" : [
+                "nicole",
+                "dima"
+        ],
+        "follows" : [ ]
+}
