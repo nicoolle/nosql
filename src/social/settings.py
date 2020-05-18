@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import pymongo
 
+from neo4j import GraphDatabase, basic_auth
+from py2neo import Graph
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -88,6 +91,8 @@ DATABASES = {
 CLIENT = pymongo.MongoClient("mongodb://localhost:27017/")
 DB = CLIENT["socialnetwork"]
 
+URI = "bolt://localhost:7687"
+NEO4J = Graph(password='agopom26')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

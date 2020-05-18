@@ -39,6 +39,9 @@
                         <button class="btn_follow" type="submit">Follow</button>
                         {% else %}
                         <button class="btn_follow" type="submit">Unfollow</button>
+                        <h4>Distance: {% for name in distance %} {{ name }};<br/> {% endfor %}
+                            {% if distance|length == 0 %} infinity {%endif%}
+                        </h4>
                         {% endif %}
                     {% endif %}
                 </div>

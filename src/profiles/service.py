@@ -5,8 +5,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from djongo.sql2mongo import SQLDecodeError
 from django.contrib.auth.models import User
 
-from social.settings import DB
+from social.settings import DB, NEO4J
 
+from neobolt.exceptions import DatabaseError
+from py2neo import Node
 
 
 USERS = DB["auth_user"]
@@ -54,6 +56,13 @@ class ProfileService:
                 {"username": follower_name},
                 {"$push": {"follows": user_name}},
                 upsert=True)
+
+                 # add neo4j relation
+            NEO4J.run("MATCH (a {username:$follower}), (b {username:$user}) "
+                      "CREATE (a)-[:follows]->(b)",
+                      {'follower': follower_name, 'user': user_name})
+
+
             return True
         return False
 
@@ -83,6 +92,11 @@ class ProfileService:
                 {"username": follower_name},
                 {"$pull": {"follows": user_name}},
                 upsert=True)
+
+            # delete neo4j relation
+            NEO4J.run("MATCH (a {username:$follower})-[f:follows]->(b {username:$user}) DELETE f",
+                      {'follower': follower_name, 'user': user_name})
+
             return True
         return False
 
@@ -94,6 +108,29 @@ class ProfileService:
         """
         result = list(USERS.find({}))
         return result
+
+    @staticmethod
+    def get_distance(user_from, user_to):
+        """
+        get distance from one user to another
+        :param user_from:
+        :param user_to:
+        :return: list of usernames from shortest path or empty list if:
+         there is no path or > 10 nodes in path or both parameters are the same
+        """
+
+        distance = []
+
+        if user_from != user_to:
+            result = NEO4J.run("MATCH p = shortestPath((f:User)-[*..10]-(t:User)) "
+                               "WHERE f.username=$user_from AND t.username=$user_to RETURN p",
+                               {'user_from': user_from, 'user_to': user_to})
+
+            if result.forward():
+                for node in result.current[0].nodes:
+                    distance.append(node['username'])
+                distance.remove(user_from)
+        return distance
 
     @staticmethod
     def create_user(username, password, email):
@@ -124,6 +161,9 @@ class ProfileService:
                 {"username": username},
                 {"$set": {"followers": [], "follows": [], "id": USERS.count({}) + 1}},  
                 upsert=True)
+
+            # save to neo4j
+            create_neo_user(username=username)
             return user
 
 
@@ -157,4 +197,18 @@ class ProfileService:
             user.save()
             return user
         except SQLDecodeError:
-            return None
+            return None 
+
+    def create_neo_user(username):
+    """
+    add user to neo4j
+    :param username:
+    :return:
+    """
+    found = NEO4J.run("MATCH (u:User {username:$username}) "
+                      "RETURN u", username=username)
+    if found.forward():
+        return None
+    user = NEO4J.run("CREATE (u:User {username:$username}) "
+                     "RETURN u", {'username': username}).current
+    return user

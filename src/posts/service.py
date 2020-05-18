@@ -10,7 +10,7 @@ from social.settings import DB
 
 
 POSTS = DB["posts"]
-USERS = DB["users"]
+USERS = DB["auth_user"]
 
 
 class PostService:

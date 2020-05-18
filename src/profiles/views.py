@@ -34,6 +34,10 @@ def view_profile(request, username):
 
     user = ProfileService.get_profile(username)
     is_following = request.user.username in user['followers']
+    distance = ProfileService.get_distance(
+        user_from=request.user.username,
+        user_to=username
+    )
     return render(
         request,
         'profile.html',
@@ -41,7 +45,9 @@ def view_profile(request, username):
             "user": user,
             "posts": PostService.get_posts_by_author(username),
             "current": current,
-            "is_following": is_following
+            "is_following": is_following,
+            "distance": distance,
+            "current_user": request.user.username,
         }
     )
 
